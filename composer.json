@@ -1,5 +1,5 @@
 {
-  "name": "paweldziok/graphql-php-parser",
+  "name": "mmaglovanyi/graphql-php-parser",
   "description": "GraphQL PHP Lexer",
   "minimum-stability": "stable",
   "license": "proprietary",
