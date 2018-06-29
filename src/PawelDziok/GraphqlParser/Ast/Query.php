@@ -8,7 +8,7 @@ namespace PawelDziok\GraphqlParser\Ast;
 
 class Query {
 
-    private $fieldList;
+    public $fieldList;
 
     public function __construct($fieldList = [])
     {
