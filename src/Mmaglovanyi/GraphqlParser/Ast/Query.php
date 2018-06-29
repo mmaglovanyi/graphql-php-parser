@@ -3,7 +3,7 @@
  * @author Paweł Dziok <pdziok@gmail.com>
  */
 
-namespace PawelDziok\GraphqlParser\Ast;
+namespace Mmaglovanyi\GraphqlParser\Ast;
 
 
 class Query {
@@ -14,6 +14,4 @@ class Query {
     {
         $this->fieldList = $fieldList;
     }
-
-
 }

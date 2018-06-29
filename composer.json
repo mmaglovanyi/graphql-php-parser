@@ -7,16 +7,19 @@
     {
       "name": "Paweł Dziok",
       "email": "pdziok@gmail.com"
+    },
+    {
+      "name": "Maksym Maglovanyi"
     }
   ],
   "autoload": {
     "psr-4": {
-      "PawelDziok\\": "src/PawelDziok/"
+      "Mmaglovanyi\\": "src/Mmaglovanyi/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "PawelDziok\\": "test/PawelDziok/"
+      "Mmaglovanyi\\": "test/Mmaglovanyi/"
     }
   },
   "require-dev": {
