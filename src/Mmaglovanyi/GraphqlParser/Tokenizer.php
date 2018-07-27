@@ -123,11 +123,6 @@ class Tokenizer
         throw $this->createIllegal();
     }
 
-//public function scanPunctuator() {
-//    $glyph = $this->source[$this->pos++];
-//    return new Token(Token::TYPE_G){ type: glyph }
-//}
-
     public function scanWord()
     {
         $start = $this->pos;
@@ -137,7 +132,6 @@ class Tokenizer
             $ch = $this->source[$this->pos];
 
             if ($ch === '_' || $ch === '$' || 'a' <= $ch && $ch <= ('z') || 'A' <= $ch && $ch <= 'Z' || '0' <= $ch && $ch <= '9') {
-//            if (preg_match('/[_\$a-zA-Z0-9]/', $ch)) {
                 $this->pos++;
             } else {
                 break;
@@ -245,7 +239,8 @@ class Tokenizer
 
     public function createError($message)
     {
-        return new SyntaxErrorException($message . " ({$this->line}:{$this->getColumn()})");
+        return new SyntaxErrorException($message .
+            " (query line: {$this->line}, character position :{$this->getColumn()})");
     }
 
     public function createIllegal()
@@ -257,15 +252,17 @@ class Tokenizer
 
     public function createUnexpected(Token $token)
     {
-        switch ($token) {
+        switch ($token->getType()) {
             case Token::TYPE_END:
-                return $this->createError('Unexpected end of input');
+                return $this->createError('Unexpected end of the query string');
             case Token::TYPE_NUMBER:
                 return $this->createError('Unexpected number');
             case Token::TYPE_STRING:
                 return $this->createError('Unexpected string');
             case Token::TYPE_IDENTIFIER:
                 return $this->createError('Unexpected identifier');
+            default:
+                return $this->createError('Unexpected character');
         }
     }
 }
